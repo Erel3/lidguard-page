@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LidGuard Helper — Optional Companion Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000; color: #e0e0e0;
+      line-height: 1.7;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(180deg, #0a1628 0%, #000 100%);
+    }
+    .hero h1 {
+      font-size: 2.4em; font-weight: 700; color: #fff;
+      margin-bottom: 8px; letter-spacing: -0.5px;
+    }
+    .hero .subtitle {
+      font-size: 1.1em; color: #7a8ba3; margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-block; padding: 12px 24px; border-radius: 10px;
+      font-size: 0.95em; font-weight: 600; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      background: #1a6dff; color: #fff;
+    }
+    .badge:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(26, 109, 255, 0.3); }
+    .section {
+      max-width: 640px; margin: 0 auto; padding: 60px 24px;
+    }
+    .section h2 {
+      font-size: 1.4em; font-weight: 600; color: #fff;
+      margin-bottom: 24px; text-align: center;
+    }
+    .feature-list {
+      list-style: none; max-width: 500px; margin: 0 auto;
+    }
+    .feature-list li {
+      padding: 16px 0; border-bottom: 1px solid #111;
+      color: #bbb; font-size: 0.95em;
+    }
+    .feature-list li:last-child { border: none; }
+    .feature-list li strong { color: #fff; }
+    .feature-list li span { color: #4a9eff; margin-right: 10px; }
+    .steps {
+      max-width: 500px; margin: 0 auto;
+    }
+    .step {
+      display: flex; gap: 16px; margin-bottom: 24px;
+    }
+    .step-num {
+      flex-shrink: 0; width: 32px; height: 32px;
+      background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #4a9eff; font-weight: 600; font-size: 0.85em;
+    }
+    .step-text { color: #bbb; font-size: 0.95em; padding-top: 4px; }
+    .step-text strong { color: #fff; }
+    .note {
+      text-align: center; color: #555; font-size: 0.85em;
+      max-width: 500px; margin: 32px auto 0;
+    }
+    .back-link {
+      display: block; text-align: center; margin-top: 40px;
+      color: #4a9eff; text-decoration: none; font-size: 0.9em;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .footer {
+      text-align: center; padding: 40px 20px;
+      border-top: 1px solid #111; color: #444; font-size: 0.8em;
+    }
+    .footer a { color: #555; text-decoration: none; margin: 0 12px; }
+    .footer a:hover { color: #888; }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>LidGuard Helper</h1>
+    <p class="subtitle">Optional companion tool for advanced features</p>
+    <a href="https://github.com/Erel3/lidguard-helper/releases/latest" class="badge">Download Helper (.pkg)</a>
+  </div>
+
+  <div class="section">
+    <h2>What It Adds</h2>
+    <ul class="feature-list">
+      <li><span>&#9679;</span> <strong>Lock screen overlay</strong> — displays your contact info on the device</li>
+      <li><span>&#9679;</span> <strong>Lid-close sleep prevention</strong> — keeps your Mac awake even with the lid closed</li>
+      <li><span>&#9679;</span> <strong>Power button detection</strong> — adds a third trigger for theft detection</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Installation</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Download and open the <strong>.pkg</strong> installer above</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Follow the installer — it places the helper in your Application Support folder</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Open LidGuard — it connects to the helper automatically</div>
+      </div>
+    </div>
+    <p class="note">LidGuard works fully without the helper. All core features — siren alarm, Telegram alerts, Bluetooth auto-arm — are built into the main app. Install the helper only if you need the extra features above.</p>
+  </div>
+
+  <a href="/lidguard-page/" class="back-link">&larr; Back to LidGuard</a>
+
+  <div class="footer">
+    <p>&copy; 2026 Andrey Kim. All rights reserved.</p>
+    <p style="margin-top: 8px;">
+      <a href="/lidguard-page/privacy">Privacy Policy</a>
+    </p>
+  </div>
+
+</body>
+</html>
