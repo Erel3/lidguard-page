@@ -61,20 +61,57 @@
       margin-bottom: 32px; text-align: center;
     }
 
-    /* Feature grid */
+    /* Feature grid — diagonal bento */
     .features {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: minmax(140px, auto);
+      grid-auto-flow: dense;
       gap: 20px;
     }
     .feature {
       background: #0d0d14; border: 1px solid #1a1a2e; border-radius: 12px;
       padding: 24px;
       transition: border-color 0.2s;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 12px;
+      row-gap: 8px;
+      align-content: start;
     }
     .feature:hover { border-color: #2a3a5e; }
-    .feature-icon { font-size: 1.5em; margin-bottom: 8px; }
-    .feature h3 { font-size: 0.95em; font-weight: 600; color: #fff; margin-bottom: 6px; }
-    .feature p { font-size: 0.85em; color: #7a8ba3; line-height: 1.5; }
+    .feature-icon {
+      grid-column: 1; grid-row: 1;
+      font-size: 1.5em; line-height: 1;
+      align-self: center;
+    }
+    .feature h3 {
+      grid-column: 2; grid-row: 1;
+      font-size: 0.95em; font-weight: 600; color: #fff;
+      align-self: center;
+    }
+    .feature p {
+      grid-column: 1 / -1;
+      font-size: 0.85em; color: #7a8ba3; line-height: 1.5;
+    }
+
+    .feature--tall { grid-row: span 2; }
+    .feature--wide { grid-column: span 2; }
+    .feature--full { grid-column: span 3; }
+
+    .feature--tall .feature-icon,
+    .feature--wide .feature-icon,
+    .feature--full .feature-icon { font-size: 2em; }
+    .feature--tall h3,
+    .feature--wide h3,
+    .feature--full h3 { font-size: 1.1em; }
+    .feature--tall p,
+    .feature--wide p,
+    .feature--full p { font-size: 0.9em; }
+    .feature--full {
+      background: linear-gradient(135deg, #0d0d14 0%, #0e1420 100%);
+      border-color: #23304a;
+    }
 
     /* How it works */
     .flow {
@@ -126,6 +163,9 @@
     @media (max-width: 600px) {
       .hero h1 { font-size: 2em; }
       .features { grid-template-columns: 1fr; }
+      .feature--tall, .feature--wide, .feature--full {
+        grid-column: auto; grid-row: auto;
+      }
       .flow { flex-direction: column; }
       .flow-arrow { transform: rotate(90deg); }
     }
@@ -136,7 +176,7 @@
   <div class="hero">
     <img src="icon.png" alt="LidGuard icon">
     <h1>LidGuard</h1>
-    <p class="subtitle">Laptop theft protection for macOS</p>
+    <p class="subtitle">Laptop theft protection for Apple Silicon Macs</p>
     <div class="badges">
       <a href="https://github.com/Erel3/lidguard/releases/latest" class="badge badge-github">Download from GitHub</a>
       <a href="/helper" class="badge badge-helper">Get LidGuard Helper</a>
@@ -169,20 +209,10 @@
   <div class="section">
     <h2>Features</h2>
     <div class="features">
-      <div class="feature">
+      <div class="feature feature--tall">
         <div class="feature-icon">🏃</div>
         <h3>Motion Detection</h3>
-        <p>Triggers theft mode the moment your Mac is picked up or carried away. Apple Silicon only.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">📍</div>
-        <h3>Real-time Tracking</h3>
-        <p>GPS location updates every 20 seconds with IP, Wi-Fi, and battery info</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🔔</div>
-        <h3>Telegram Alerts</h3>
-        <p>Instant notifications to your personal Telegram bot</p>
+        <p>Triggers theft mode the moment your Mac is picked up, tilted, or carried away — using the built-in accelerometer. Responds instantly while ignoring everyday bumps.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🔊</div>
@@ -190,9 +220,19 @@
         <p>Loud synthesized alarm to draw attention</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">📱</div>
-        <h3>Bluetooth Auto-Arm</h3>
-        <p>Automatically arms when your phone leaves Bluetooth range</p>
+        <div class="feature-icon">☕</div>
+        <h3>Sleep Prevention</h3>
+        <p>Keeps your Mac awake so tracking continues</p>
+      </div>
+      <div class="feature feature--wide">
+        <div class="feature-icon">👆</div>
+        <h3>Touch ID Disarm</h3>
+        <p>Quickly disarm with biometric authentication — one tap to return to normal mode.</p>
+      </div>
+      <div class="feature feature--wide">
+        <div class="feature-icon">🔔</div>
+        <h3>Telegram Alerts</h3>
+        <p>Instant notifications to your personal Telegram bot with location, IP, Wi-Fi, and battery info — updated every 20 seconds.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🔒</div>
@@ -200,24 +240,24 @@
         <p>Display a custom message on the stolen device</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">☕</div>
-        <h3>Sleep Prevention</h3>
-        <p>Keeps your Mac awake so tracking continues</p>
+        <div class="feature-icon">📍</div>
+        <h3>Real-time Tracking</h3>
+        <p>GPS location, IP address, Wi-Fi network, battery</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">👆</div>
-        <h3>Touch ID Disarm</h3>
-        <p>Quickly disarm with biometric authentication</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">📡</div>
-        <h3>Remote Control</h3>
-        <p>Stop alarm and manage protection via Telegram commands</p>
+        <div class="feature-icon">📱</div>
+        <h3>Bluetooth Auto-Arm</h3>
+        <p>Arms when your phone leaves Bluetooth range</p>
       </div>
       <div class="feature">
         <div class="feature-icon">⌨️</div>
         <h3>Global Hotkey</h3>
         <p>Arm and disarm with a keyboard shortcut</p>
+      </div>
+      <div class="feature feature--full">
+        <div class="feature-icon">📡</div>
+        <h3>Remote Control via Telegram</h3>
+        <p>Control your armed Mac from anywhere — stop the alarm, check device status, disarm protection, all through Telegram commands.</p>
       </div>
     </div>
   </div>
@@ -225,9 +265,10 @@
   <div class="section">
     <h2>Requirements</h2>
     <ul class="req-list">
+      <li><span>&#9679;</span> Apple Silicon Mac (M1 Pro, M2, or newer)</li>
       <li><span>&#9679;</span> macOS 14.0 (Sonoma) or later</li>
       <li><span>&#9679;</span> Telegram bot (free to create)</li>
-      <li><span>&#9679;</span> Optional: <a href="/helper" style="color:#4a9eff;text-decoration:none;">LidGuard Helper</a> for lock screen, sleep prevention, and power button detection</li>
+      <li><span>&#9679;</span> Optional: <a href="/helper" style="color:#4a9eff;text-decoration:none;">LidGuard Helper</a> for motion detection, lock screen, sleep prevention, and power button alerts</li>
     </ul>
   </div>
 
